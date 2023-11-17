@@ -1,5 +1,4 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Keymaps are automatically loaded on the VeryLazy event Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
@@ -60,3 +59,5 @@ keymap("n", "i", function()
 end, { expr = true })
 
 -- Toggle back to file explorer
+keymap("n", "<leader>.", ":Neotree toggle<CR>")
+keymap("n", "<leader>S", ":source<CR>")

@@ -46,7 +46,15 @@ return {
     "javascriptreact",
     "json",
   }, -- get automatically installed
-  after_open = function(bufnr) end, -- callback that runs after the Devdocs window is opened. Devdocs buffer ID will be passed in
+  after_open = function(bufnr)
+    vim.api.nvim_buf_set_keymap(
+      bufnr,
+      "n",
+      "<Esc>",
+      ":close<CR>",
+      { print("This should only show after the closing devdocs") }
+    )
+  end, -- callback that runs after the Devdocs window is opened. Devdocs buffer ID will be passed in
   cmd = {
     "DevdocsFetch",
     "DevdocsInstall",
@@ -57,5 +65,12 @@ return {
     "DevdocsOpenCurrentFloat",
     "DevdocsUpdate",
     "DevdocsUpdateAll",
+  },
+  keys = {
+    se = "+Devdocs",
+    -- { "<leader>se", "DevdocsOpen", desc = "Open Devdocs" },
+    -- { "<leader>sf", "DevdocsOpenFloat", desc = "Open Devdocs in floating window" },
+    -- { "<leader>sc", "DevdocsOpenCurrent", desc = "Open Devdocs for current word" },
+    -- { "<leader>sf", "DevdocsOpenCurrentFloat", desc = "Open Devdocs for current word in floating window" },
   },
 }
